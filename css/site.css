@@ -1,0 +1,264 @@
+/* 🏗️ Sheffield Contracting: one stylesheet for every page */
+:root {
+  --navy: #0c1626; --navy-2: #13213a; --navy-3: #1c2d4b; --ink: #070e19;
+  --gold: #d9a521; --gold-2: #f0c04a; --white: #ffffff; --mist: #c9d1de; --line: rgba(255,255,255,.12);
+  --paper: #f4f6f9; --slate: #4a566b;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-padding-top: 90px; }
+body { font: 400 17px/1.6 Barlow, system-ui, sans-serif; color: var(--white); background: var(--navy); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+p a, .prose a { color: var(--gold-2); text-decoration: underline; text-underline-offset: 3px; }
+.wrap { width: min(1200px, 100% - 32px); margin: 0 auto; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--gold); color: var(--navy); padding: 10px 16px; z-index: 50; font-weight: 600; }
+.skip:focus { left: 8px; }
+.display { font-family: "Barlow Condensed", sans-serif; font-weight: 800; text-transform: uppercase; line-height: .92; letter-spacing: .01em; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 700 19px "Barlow Condensed", sans-serif; letter-spacing: .04em; cursor: pointer;
+       text-transform: uppercase; padding: 14px 24px; border-radius: 4px; background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
+.btn:hover { background: var(--gold-2); border-color: var(--gold-2); }
+.btn.ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
+.btn.ghost:hover { border-color: var(--gold-2); color: var(--gold-2); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--gold-2); outline-offset: 2px; }
+svg.i { width: 22px; height: 22px; flex: none; }
+
+/* top bar + nav */
+.util { background: var(--ink); font-size: 14px; color: var(--mist); }
+.util .wrap { display: flex; justify-content: space-between; padding: 8px 0; gap: 16px; }
+.util b { color: var(--gold-2); font-weight: 600; }
+nav.top { position: sticky; top: 0; z-index: 10; background: rgba(12,22,38,.97); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: flex; align-items: center; gap: 28px; padding: 12px 0; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { height: 46px; width: auto; }
+.brand .name { font: 800 30px/0.9 "Barlow Condensed"; letter-spacing: .03em; }
+.brand .name small { display: block; font-size: 13px; letter-spacing: .28em; color: var(--gold); font-weight: 700; margin-top: 3px; }
+.links { display: flex; gap: 26px; margin-left: auto; font: 600 16px "Barlow Condensed"; letter-spacing: .08em; text-transform: uppercase; color: var(--mist); }
+.links a:hover, .links a[aria-current="page"] { color: var(--white); }
+.links a[aria-current="page"] { box-shadow: inset 0 -3px var(--gold); }
+.menu-btn { display: none; background: none; border: 1.5px solid rgba(255,255,255,.35); color: var(--white); border-radius: 4px; padding: 8px 10px; cursor: pointer; }
+.menu-btn svg { width: 22px; height: 22px; display: block; }
+
+/* home hero */
+.hero { position: relative; overflow: hidden; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy) 18%, rgba(12,22,38,.86) 45%, rgba(12,22,38,.25) 100%); }
+.hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .9fr; gap: 48px; align-items: center; padding: 96px 0 104px; }
+.kicker { display: flex; gap: 10px; align-items: center; color: var(--gold-2); font: 700 17px "Barlow Condensed"; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; }
+.kicker::before { content: ""; width: 34px; height: 3px; background: var(--gold); }
+.hero h1 { font-size: clamp(56px, 7.4vw, 104px); }
+.hero h1 em { display: block; font-size: .8em; white-space: nowrap; font-style: italic; color: var(--gold); transform: skewX(-6deg); transform-origin: left; margin-top: 8px; }
+.lead { font-size: 20px; color: var(--mist); max-width: 40ch; margin: 22px 0 30px; }
+.ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* inner-page hero */
+.phero { position: relative; overflow: hidden; border-bottom: 4px solid var(--gold); }
+.phero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.phero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy) 30%, rgba(12,22,38,.82) 60%, rgba(12,22,38,.45)); }
+.phero .wrap { position: relative; z-index: 1; padding: 64px 0 72px; }
+.phero h1 { font-size: clamp(44px, 6vw, 84px); max-width: 16ch; }
+.phero .lead { margin-bottom: 26px; }
+.crumbs { font-size: 14px; color: var(--mist); margin-bottom: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
+.crumbs a { color: var(--gold-2); }
+.crumbs span[aria-hidden] { opacity: .5; }
+
+/* estimate form */
+.quote { background: var(--white); color: var(--navy); border-radius: 6px; padding: 30px; box-shadow: 0 30px 60px rgba(0,0,0,.35); border-top: 6px solid var(--gold); }
+.quote h2 { font: 800 34px/1 "Barlow Condensed"; text-transform: uppercase; }
+.quote > p { font-size: 15px; color: var(--slate); margin: 6px 0 14px; }
+.quote label { display: block; font: 600 13px Barlow; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); margin: 12px 0 5px; }
+.quote label i { font-style: normal; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.quote input, .quote select, .quote textarea { width: 100%; font: 500 16px Barlow; padding: 12px 14px; border: 1.5px solid #cfd6e1; border-radius: 4px; background: #f6f8fb; color: var(--navy); }
+.quote textarea { min-height: 110px; resize: vertical; }
+.quote .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.quote .btn { width: 100%; justify-content: center; margin-top: 20px; }
+.quote .fine { font-size: 13px; color: #6b7588; text-align: center; margin-top: 10px; }
+.quote .status { font-size: 15px; margin-top: 12px; padding: 10px 12px; border-radius: 4px; display: none; }
+.quote .status.show { display: block; }
+.quote .status.err { background: #fdecec; color: #8a1c1c; }
+.quote .status.ok { background: #e8f5ec; color: #1d5c32; }
+.quote [aria-invalid="true"] { border-color: #c0392b; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* trust strip */
+.trust { background: var(--gold); color: var(--navy); }
+.trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.trust div { display: flex; align-items: center; gap: 12px; padding: 22px 18px; font: 800 20px/1.05 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .03em; }
+.trust div + div { border-left: 1px solid rgba(12,22,38,.2); }
+.trust svg.i { width: 34px; height: 34px; }
+
+/* sections */
+section { padding: 96px 0; }
+section.alt { background: var(--navy-2); }
+section.light { background: var(--paper); color: var(--navy); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 44px; }
+.head h2 { font-size: clamp(42px, 5vw, 64px); }
+.head h2 span, .gold { color: var(--gold); }
+.head p { color: var(--mist); max-width: 40ch; }
+section.light .head p { color: var(--slate); }
+
+/* service cards */
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+.svc { background: var(--navy-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s; }
+.svc:hover { border-color: var(--gold); }
+.svc img { height: 170px; width: 100%; object-fit: cover; }
+.svc .body { padding: 22px 22px 26px; flex: 1; display: flex; flex-direction: column; }
+.svc h3 { font: 800 30px/1 "Barlow Condensed"; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.svc h3 svg { color: var(--gold); width: 28px; height: 28px; }
+.svc ul { list-style: none; padding: 0; margin: 14px 0 18px; color: var(--mist); }
+.svc li, .ticks li { padding: 7px 0; border-bottom: 1px solid var(--line); display: flex; gap: 10px; }
+.svc li::before, .ticks li::before { content: ""; width: 7px; height: 7px; margin-top: 10px; background: var(--gold); transform: rotate(45deg); flex: none; }
+.svc .more { margin-top: auto; font: 700 17px "Barlow Condensed"; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-2); }
+.ticks { list-style: none; padding: 0; }
+
+/* owner / split blocks */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.pics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pics img { border-radius: 6px; height: 260px; width: 100%; object-fit: cover; }
+.pics img:first-child { grid-column: span 2; height: 300px; }
+.split h2 { font-size: clamp(42px, 5vw, 62px); margin-bottom: 20px; }
+.split h2 span { color: var(--gold); display: block; }
+.split p, .prose p { color: var(--mist); margin-bottom: 16px; max-width: 60ch; }
+.sig { display: flex; align-items: center; gap: 16px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.sig b { font: 800 26px "Barlow Condensed"; text-transform: uppercase; display: block; }
+.sig span { color: var(--gold); font-weight: 600; }
+
+/* included grid (service pages) */
+.incl { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.incl div { background: var(--white); border-radius: 6px; padding: 26px; border-left: 5px solid var(--gold); }
+.incl h3 { font: 800 26px/1.05 "Barlow Condensed"; text-transform: uppercase; margin-bottom: 8px; }
+.incl p { color: var(--slate); font-size: 16px; }
+
+/* process steps: a real sequence, so numbered */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; list-style: none; padding: 0; }
+.steps li { counter-increment: step; border-top: 3px solid var(--gold); padding-top: 18px; }
+.steps li::before { content: counter(step); display: block; font: 800 56px/1 "Barlow Condensed"; color: var(--gold); margin-bottom: 8px; }
+.steps b { display: block; font: 800 24px/1.05 "Barlow Condensed"; text-transform: uppercase; margin-bottom: 6px; }
+.steps span { color: var(--mist); font-size: 16px; }
+
+/* signs list (roofing) */
+.signs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px 32px; }
+
+/* FAQ */
+.faq { max-width: 860px; }
+.faq details { border-bottom: 1px solid var(--line); }
+section.light .faq details { border-color: #d5dbe5; }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative; font: 700 24px/1.15 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .02em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 32px; color: var(--gold); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 0 22px; color: var(--mist); max-width: 66ch; }
+section.light .faq details p { color: var(--slate); }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.review { border: 1px solid var(--line); border-radius: 6px; padding: 26px; color: var(--mist); background: var(--navy-2); }
+.stars { color: var(--gold-2); letter-spacing: 3px; font-size: 20px; }
+.review p { margin: 12px 0 16px; font-size: 18px; color: var(--white); }
+.review small { font-weight: 600; }
+.review-cta { border: 1.5px dashed rgba(240,192,74,.55); border-radius: 6px; padding: 34px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.review-cta p { color: var(--mist); max-width: 52ch; }
+
+/* service area */
+.area { background: var(--navy-3); padding: 72px 0; }
+.area .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+.area h2 { font-size: clamp(40px, 4.6vw, 58px); }
+.cities { display: flex; flex-wrap: wrap; gap: 12px; }
+.cities a, .cities span { font: 700 22px "Barlow Condensed"; text-transform: uppercase; letter-spacing: .05em; padding: 12px 20px; border: 1.5px solid rgba(255,255,255,.25); border-radius: 4px; }
+.cities a:hover, .cities a[aria-current="page"] { border-color: var(--gold); color: var(--gold-2); }
+.cities span { border-style: dashed; color: var(--mist); }
+
+/* town cards (areas page) */
+.towns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.town { background: var(--navy-2); border: 1px solid var(--line); border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.town:hover { border-color: var(--gold); }
+.town h3 { font: 800 36px/1 "Barlow Condensed"; text-transform: uppercase; }
+.town .meta { color: var(--gold-2); font-weight: 600; font-size: 15px; }
+.town p { color: var(--mist); }
+.town .more { margin-top: auto; font: 700 17px "Barlow Condensed"; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-2); }
+
+/* gallery */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.gallery figure { margin: 0; background: var(--navy-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.gallery img { width: 100%; height: 260px; object-fit: cover; }
+.gallery figcaption { padding: 14px 16px; font-size: 15px; color: var(--mist); }
+.gallery figcaption b { display: block; color: var(--white); font: 700 20px "Barlow Condensed"; text-transform: uppercase; letter-spacing: .03em; }
+.note { border-left: 4px solid var(--gold); background: rgba(217,165,33,.1); padding: 16px 20px; border-radius: 0 6px 6px 0; color: var(--mist); margin-bottom: 32px; max-width: 760px; }
+
+/* contact */
+.contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
+.cards { display: grid; gap: 14px; }
+.card { background: var(--navy-2); border: 1px solid var(--line); border-radius: 6px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; }
+.card svg.i { color: var(--gold); width: 28px; height: 28px; margin-top: 2px; }
+.card h3 { font: 700 15px Barlow; letter-spacing: .08em; text-transform: uppercase; color: var(--mist); }
+.card a, .card div > b { font: 700 26px/1.2 "Barlow Condensed"; letter-spacing: .02em; display: block; }
+.card a:hover { color: var(--gold-2); }
+.card small { color: var(--mist); font-size: 14px; }
+
+/* closing CTA */
+.cta { background: linear-gradient(rgba(12,22,38,.88), rgba(12,22,38,.88)), url(../img/roof.jpg) center/cover; text-align: center; padding: 110px 0; }
+.cta h2 { font-size: clamp(48px, 6.6vw, 92px); }
+.cta h2 span { color: var(--gold); }
+.cta .phones { display: flex; justify-content: center; gap: 18px; margin-top: 34px; flex-wrap: wrap; }
+.cta .btn { font-size: 26px; padding: 18px 30px; }
+
+/* bottom estimate band (service + town pages) */
+.band .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.band h2 { font-size: clamp(44px, 5.4vw, 72px); margin-bottom: 18px; }
+.band .wrap > div > p { color: var(--mist); max-width: 44ch; margin-bottom: 14px; }
+.band .direct { display: grid; gap: 10px; margin-top: 22px; }
+.band .direct a { display: flex; gap: 10px; align-items: center; font: 700 24px "Barlow Condensed"; letter-spacing: .03em; }
+.band .direct svg { color: var(--gold); }
+
+footer { background: var(--ink); color: var(--mist); font-size: 15px; padding: 56px 0 40px; }
+footer .wrap.cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+footer h4 { font: 700 17px "Barlow Condensed"; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+footer p, footer li { line-height: 1.9; }
+footer ul { list-style: none; padding: 0; }
+footer a:hover { color: var(--white); }
+footer .legal { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 20px; font-size: 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+.callbar { display: none; }
+
+@media (max-width: 1000px) {
+  .links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; margin: 0; background: var(--navy); border-bottom: 3px solid var(--gold); }
+  .links.open { display: flex; }
+  .links a { padding: 16px 16px; border-top: 1px solid var(--line); font-size: 20px; }
+  .links a[aria-current="page"] { box-shadow: inset 4px 0 var(--gold); }
+  .menu-btn { display: block; }
+  nav.top .btn { margin-left: auto; }
+}
+@media (max-width: 900px) {
+  .util .hide { display: none; }
+  nav.top .wrap { gap: 12px; }
+  nav.top .btn { padding: 10px 12px; font-size: 16px; white-space: nowrap; }
+  .brand img { height: 38px; } .brand .name { font-size: 24px; } .brand .name small { font-size: 10px; letter-spacing: .14em; white-space: nowrap; }
+  .hero .wrap, .split, .area .wrap, .band .wrap, .contact-grid { grid-template-columns: 1fr; }
+  footer .wrap.cols { grid-template-columns: 1fr 1fr; }
+  .hero .wrap { padding: 56px 0 64px; gap: 36px; }
+  .hero::after { background: linear-gradient(180deg, rgba(12,22,38,.75), var(--navy) 70%); }
+  .phero::after { background: linear-gradient(180deg, rgba(12,22,38,.8), var(--navy) 85%); }
+  .phero .wrap { padding: 44px 0 52px; }
+  .trust .wrap { grid-template-columns: 1fr 1fr; }
+  .trust div { padding: 16px 10px; font-size: 17px; }
+  .trust div:nth-child(3) { border-left: 0; }
+  .reviews, .gallery { grid-template-columns: 1fr; }
+  .svc img { height: 140px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .head { flex-direction: column; align-items: start; }
+  section { padding: 64px 0; }
+  .split { gap: 40px; }
+  footer { padding-bottom: 96px; }
+  .callbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; inset: auto 0 0 0; z-index: 20; }
+  .callbar a { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 16px; font: 800 19px "Barlow Condensed"; text-transform: uppercase; letter-spacing: .05em; }
+  .callbar a:first-child { background: var(--gold); color: var(--navy); }
+  .callbar a:last-child { background: var(--navy-3); }
+}
+@media (max-width: 520px) {
+  .quote { padding: 24px 20px; }
+  .quote .row { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  footer .wrap.cols { grid-template-columns: 1fr; }
+  .cta .btn { font-size: 21px; padding: 14px 20px; }
+  .gallery img { height: 220px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

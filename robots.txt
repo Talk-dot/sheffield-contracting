@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://talk-dot.github.io/sheffield-contracting/sitemap.xml
